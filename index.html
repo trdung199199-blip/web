@@ -6,7 +6,10 @@
     <title>Bai tap</title>
     <style>
       .p {
-        color: red; 
+        color: black; 
+      }
+      .p full {
+        color: red;
       }
     </style>
   </head>
@@ -20,10 +23,10 @@
     </div>
     
     <div>
-    <label>Input Field</label>
-    <br>
-    <input type="text" id="text" maxlength="20">
-    <p id="dem1" class="p">Maximum 0/20</p>
+      <label>Input Field</label>
+      <br>
+      <input type="text" id="text" maxlength="20">
+      <p id="dem1" class="p">Maximum 0/20</p>
     </div>
     <script>
       const textarea = document.getElementById("textarea");      
@@ -34,11 +37,13 @@
       textarea.addEventListener("input", () => {
         const soKyTu = textarea.value.length;
         dem.textContent = `Max ${soKyTu}/140`;
+        dem.classList.toggle("full", soKyTu === 140);
       });
     
       text.addEventListener("input", () => {
         const kyTu = text.value.length;
         dem1.textContent = `Maximum ${kyTu}/20`;
+        dem1.classList.toggle("full", kyTu === 20);
       });
     </script>
   </body>
